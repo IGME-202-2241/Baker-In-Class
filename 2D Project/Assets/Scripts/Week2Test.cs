@@ -10,6 +10,10 @@ public class Week2Test : MonoBehaviour
 
     public Week2Test testing;
 
+    public SpawnManager spawnManager;
+
+    private int favNum = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +23,11 @@ public class Week2Test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = ball.transform.position;
-        transform.Translate(0, 0, -10f);
+        
+    }
 
-        ball.mass += 1f;
+    public void SayHi()
+    {
+        Debug.Log("Hi!");
     }
 }
