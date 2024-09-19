@@ -7,30 +7,35 @@ using UnityEngine.InputSystem;
 //  Look at and move to the mouse
 public class Tracker : MonoBehaviour
 {
-    public bool isFiring = false;
+    public bool isMoving = false;
 
-    public Vector3 mousePos;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Vector2 mousePos;
 
     // Update is called once per frame
     void Update()
     {
-        if (isFiring)
+        mousePos = Mouse.current.position.ReadValue();
+
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+        //mousePos.z = transform.position.z;
+
+        if (isMoving)
         {
             //Debug.Log("Fire");
-
-            mousePos = Mouse.current.position.ReadValue();
-
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
-            mousePos.z = transform.position.z;
-
             transform.position = mousePos;
+        }
+        else
+        {
+            Vector2 targetPos = mousePos;//(Vector3)mousePos - transform.position;
+
+            float targetAngle = Mathf.Atan2(targetPos.y, targetPos.x);
+
+            targetAngle *= Mathf.Rad2Deg;
+
+            Quaternion lookRotation = Quaternion.Euler(0, 0, targetAngle);
+
+            transform.rotation = lookRotation;
         }
     }
 
@@ -41,11 +46,11 @@ public class Tracker : MonoBehaviour
             context.phase == InputActionPhase.Performed)
         {
             
-            isFiring = true;
+            isMoving = true;
         }
         else
         {
-            isFiring = false;
+            isMoving = false;
         }
     }
 }
