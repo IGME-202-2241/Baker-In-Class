@@ -8,16 +8,6 @@ public class Tracker : MonoBehaviour
 {
     public bool isFiring = false;
 
-    //  Old polling system
-    bool isKeyDown = false;
-    int fireKey = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -25,24 +15,6 @@ public class Tracker : MonoBehaviour
         {
             Debug.Log("Fire!");
         }
-
-        // old
-        if (Input.GetMouseButtonDown(fireKey))
-        {
-            if (!isKeyDown)
-            {
-                Debug.Log("Poll Fire");
-            }
-
-
-            isKeyDown = true;
-        }
-        else
-        {
-            isKeyDown = false;
-        }
-
-        
     }
 
     public void OnFire(InputAction.CallbackContext context)
