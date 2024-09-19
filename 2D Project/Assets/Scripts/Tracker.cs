@@ -18,8 +18,6 @@ public class Tracker : MonoBehaviour
 
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
-        //mousePos.z = transform.position.z;
-
         if (isMoving)
         {
             //Debug.Log("Fire");
@@ -27,7 +25,7 @@ public class Tracker : MonoBehaviour
         }
         else
         {
-            Vector2 targetPos = mousePos;//(Vector3)mousePos - transform.position;
+            Vector2 targetPos = (Vector3)mousePos - transform.position;
 
             float targetAngle = Mathf.Atan2(targetPos.y, targetPos.x);
 
