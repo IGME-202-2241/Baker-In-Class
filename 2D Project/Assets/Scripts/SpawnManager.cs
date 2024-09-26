@@ -13,7 +13,7 @@ public class SpawnManager : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            Instantiate(spawnPrefab);
+            Spawn(spawnPrefab);
         }
     }
 
@@ -21,5 +21,10 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Spawn(GameObject spawnObj)
+    {
+        Instantiate(spawnPrefab);
     }
 }
