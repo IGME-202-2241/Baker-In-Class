@@ -262,6 +262,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7243296555213893957, guid: 53d49fb6022a21e4596352e0f980021a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243296555213893957, guid: 53d49fb6022a21e4596352e0f980021a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243296555213893957, guid: 53d49fb6022a21e4596352e0f980021a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1526822225}
+    - target: {fileID: 7243296555213893957, guid: 53d49fb6022a21e4596352e0f980021a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243296555213893957, guid: 53d49fb6022a21e4596352e0f980021a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243296555213893957, guid: 53d49fb6022a21e4596352e0f980021a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RandomSpawnManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243296555213893957, guid: 53d49fb6022a21e4596352e0f980021a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8466080415990936176, guid: 53d49fb6022a21e4596352e0f980021a, type: 3}
       propertyPath: m_Name
       value: Input Manager
@@ -300,6 +328,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1bce3ac6f902542a27e8eb5a64ae6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spritePrefabs:
+  - {fileID: 8332804588696940145, guid: f869d16d52024d34f9b35ebce5049ffb, type: 3}
+  - {fileID: 856070937968112536, guid: 249a54a1227cbc346bd12857beb51085, type: 3}
+  - {fileID: 5804482756846291759, guid: 853c7dd41855e8a4c958208ffa655c41, type: 3}
+  spawnedObjects: []
 --- !u!4 &1526822226
 Transform:
   m_ObjectHideFlags: 0
