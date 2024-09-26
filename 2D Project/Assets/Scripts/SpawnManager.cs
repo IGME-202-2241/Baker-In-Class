@@ -17,12 +17,17 @@ public class SpawnManager : MonoBehaviour
 
             //newThing.GetComponent<Week2Demo>().gameObject.SetActive(false);
         }*/
-        GameObject newThing = Instantiate(spawnPrefab, transform.position, Quaternion.identity);
+        Spawn();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void Spawn()
+    {
+        GameObject newThing = Instantiate(spawnPrefab, transform.position, Quaternion.identity);
     }
 }
