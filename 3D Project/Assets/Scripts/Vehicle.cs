@@ -33,13 +33,49 @@ public class Vehicle : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        velocity = movementDirection * (maxSpeed * Time.fixedDeltaTime);
-        Debug.Log(velocity.magnitude);
+        acceleration = Vector3.zero;
 
-        rBody.MovePosition(transform.position + velocity);
+        //  Vehcile moving faster
+        if (movementDirection.z != 0f)
+        {
+            acceleration = transform.forward * (movementDirection.z * accelerationRate * Time.fixedDeltaTime);
+
+            velocity += acceleration * Time.fixedDeltaTime;
+
+            velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+        }
+        // Vehcilce slowing down
+        else
+        {
+            velocity *= 1f - (decelerationRate * Time.fixedDeltaTime);
+
+            //  Stop the vehicle when it reaches a certain speed
+            if (velocity.magnitude < minSpeed)
+            {
+                velocity = Vector3.zero;
+            }
+
+        }
+
+        
+
+        //  Rotation stuff
+        turning = Quaternion.Euler(0f, movementDirection.x * turnSpeed * Time.fixedDeltaTime, 0f);
+
+        //velocity *= turning;
+        velocity = turning * velocity;
+
+        //rBody.MovePosition(transform.position + velocity);
+        //rBody.MoveRotation(transform.rotation * turning);
+        rBody.Move(transform.position + velocity, transform.rotation * turning);
     }
 
     public void OnMove(InputAction.CallbackContext context)
