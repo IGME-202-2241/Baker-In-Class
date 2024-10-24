@@ -522,7 +522,7 @@ PrefabInstance:
       objectReference: {fileID: 18485520}
     - target: {fileID: 5666315293239306611, guid: 1f953233e93805a41b306d6e6cc70305, type: 3}
       propertyPath: maxSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5666315293239306611, guid: 1f953233e93805a41b306d6e6cc70305, type: 3}
       propertyPath: minSpeed
@@ -538,7 +538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5666315293239306611, guid: 1f953233e93805a41b306d6e6cc70305, type: 3}
       propertyPath: decelerationRate
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
