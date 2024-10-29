@@ -139,6 +139,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0a97228c4640f47b98f755373c0688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rBody: {fileID: 3786830838753286534}
+  maxSpeed: 100
+  minSpeed: 1
+  accelerationRate: 16
+  decelerationRate: 0.8
+  turnSpeed: 60
+  movementDirection: {x: 0, y: 0, z: 0}
 --- !u!54 &3786830838753286534
 Rigidbody:
   m_ObjectHideFlags: 0
