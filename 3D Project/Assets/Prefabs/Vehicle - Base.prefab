@@ -149,7 +149,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -166,6 +166,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a40d699259c474c9f5ec5f9abb6a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rBody: {fileID: 3664502447907546248}
+  maxSpeed: 10
+  minSpeed: 1
+  accelerationRate: 8
+  decelerationRate: 0.8
+  turnSpeed: 80
+  movementDirection: {x: 0, y: 0, z: 0}
 --- !u!1001 &6344297278724463255
 PrefabInstance:
   m_ObjectHideFlags: 0
