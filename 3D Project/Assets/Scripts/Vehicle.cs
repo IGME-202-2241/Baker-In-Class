@@ -27,10 +27,16 @@ public class Vehicle : MonoBehaviour
     // Fields for Quaternions
     Quaternion turning;
 
+    public int terrainLayer = 3;
+    int terrainLayerMask;
+    RaycastHit terrainHit;
+    Vector3 rayOrigin;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        terrainLayerMask = (1 << terrainLayer);
     }
 
     private void Update()
@@ -41,6 +47,13 @@ public class Vehicle : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        rayOrigin = transform.position;
+        rayOrigin.y = 101f;
+        Physics.Raycast(rayOrigin, Vector3.down, out terrainHit, 120, terrainLayerMask);
+
+
+
+
         acceleration = Vector3.zero;
 
         //  Vehcile moving faster
@@ -73,9 +86,16 @@ public class Vehicle : MonoBehaviour
         //velocity *= turning;
         velocity = turning * velocity;
 
-        //rBody.MovePosition(transform.position + velocity);
+        Vector3 terrainPos = transform.position;
+
+        if(terrainHit.transform != null)
+        {
+            terrainPos = terrainHit.point;
+        }
+
         //rBody.MoveRotation(transform.rotation * turning);
-        rBody.Move(transform.position + velocity, transform.rotation * turning);
+        //rBody.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
+        rBody.Move(terrainPos + velocity * Time.fixedDeltaTime, transform.rotation * turning);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -85,5 +105,12 @@ public class Vehicle : MonoBehaviour
         movementDirection.z = movementDirection.y;
 
         movementDirection.y = 0;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        Gizmos.DrawRay(rayOrigin, Vector3.down * 120f);
     }
 }
