@@ -26,11 +26,16 @@ public class Vehicle : MonoBehaviour
     // Fields for Quaternions
     Quaternion turning;
 
+    public int terrainLayer;
+    int layerMask;
+    RaycastHit terrainHit;
+    Vector3 rayOrigin;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        layerMask = (1 << terrainLayer);
     }
 
     // Update is called once per frame
@@ -43,6 +48,17 @@ public class Vehicle : MonoBehaviour
 
     private void FixedUpdate()
     {
+        rayOrigin = transform.position;
+        rayOrigin.y = 101f;
+
+        Vector3 position = transform.position;
+
+        if (Physics.Raycast(rayOrigin, Vector3.down, out terrainHit, 102f, layerMask))
+        {
+            position = terrainHit.point;
+        }
+
+
         acceleration = Vector3.zero;
 
         if (movementDirection.z != 0)
@@ -75,7 +91,7 @@ public class Vehicle : MonoBehaviour
 
         //rBody.MoveRotation(transform.rotation * turning);
         //rBody.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
-        rBody.Move(transform.position + velocity * Time.fixedDeltaTime, transform.rotation * turning);
+        rBody.Move(position + velocity * Time.fixedDeltaTime, transform.rotation * turning);
     }
 
     public void OnMove(InputAction.CallbackContext context)
