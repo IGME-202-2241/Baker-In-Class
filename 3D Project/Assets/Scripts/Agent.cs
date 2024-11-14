@@ -8,7 +8,7 @@ public abstract class Agent : MonoBehaviour
     public Rigidbody rBody;
 
     // Fields for Speed
-    public float maxSpeed;
+    public float maxSpeed, maxForce;
 
     // Fields for Movement Vectors
     protected Vector3 velocity, acceleration;
@@ -33,6 +33,9 @@ public abstract class Agent : MonoBehaviour
 
         // Start with acceleration based on the steering force
         acceleration = CalcSteering();
+
+        //  Limit how much force an Agent can feel
+        acceleration = Vector3.ClampMagnitude(acceleration, maxForce);
 
         // Calc velocity based on accel scaled by time
         velocity += acceleration * Time.fixedDeltaTime;
