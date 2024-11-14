@@ -315,7 +315,7 @@ Transform:
   m_GameObject: {fileID: 1248595137}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.9681687, y: 0, z: 20.856276}
+  m_LocalPosition: {x: 4.9681687, y: 0, z: 77.19}
   m_LocalScale: {x: 5.1454, y: 5.1454, z: 5.1454}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -422,7 +422,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 1, z: 50}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -488,7 +488,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 260.4
+  orthographic size: 60.18
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -571,6 +571,26 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1248595137}
+    - target: {fileID: 4992645975495924609, guid: 306e67a74fac41a41811bb4e82d4caea, type: 3}
+      propertyPath: maxForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4992645975495924609, guid: 306e67a74fac41a41811bb4e82d4caea, type: 3}
+      propertyPath: seekScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4992645975495924609, guid: 306e67a74fac41a41811bb4e82d4caea, type: 3}
+      propertyPath: worldBounds.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4992645975495924609, guid: 306e67a74fac41a41811bb4e82d4caea, type: 3}
+      propertyPath: worldBounds.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4992645975495924609, guid: 306e67a74fac41a41811bb4e82d4caea, type: 3}
+      propertyPath: worldBounds.z
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 5786126864849674327, guid: 306e67a74fac41a41811bb4e82d4caea, type: 3}
       propertyPath: m_Name
       value: Seeker - Agent
